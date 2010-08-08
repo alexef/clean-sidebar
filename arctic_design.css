@@ -10,15 +10,18 @@ body {
   color: __text__;
   margin: __body_margin__;
   line-height: __line_height__;
-  background: __body_background__;
+  background: __body_background__ url(images/logobg.png) bottom right no-repeat;
+  min-height: 720px;
+
 }
 
 div#wrapper {
   margin: auto;
   width: __wiki_width__;
+  max-width: 1200px;
+  min-width: 1000px;
   border: 1px solid __border__;
-  background: __background__;
-  padding: __page_padding__;
+  background: __background__ ;  padding: __page_padding__;
 }
 
 div.dokuwiki div.left_sidebar {
@@ -59,7 +62,6 @@ div.dokuwiki div.center_page {
 }
 
 div.footerinc {
-  border: 1px solid __border__;
   background-color: __footer_background__;
   margin-top: 0.5em;
 }
@@ -485,4 +487,9 @@ div.dokuwiki div.bar a.top {
 
 div.dokuwiki div.bar a.revert {
   background: transparent url(images/tool-revert.png) 0px 5px no-repeat;
+}
+/* AE */
+
+.indexmenu_idx {
+	display: none;
 }

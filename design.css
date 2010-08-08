@@ -391,9 +391,9 @@ div.dokuwiki h5 {
     background-color: inherit;
     font-size: 100%;
     font-weight: normal;
-    margin: 0 0 1em 0;
+    margin: 0 0 0.5em 0;
     padding: 0.5em 0 0 0;
-    border-bottom: 1px solid __border__;
+/* AE:   border-bottom: 1px solid __border__;*/
     clear: left;
 }
 
@@ -447,13 +447,13 @@ div.dokuwiki ol ol ol { list-style-type: lower-alpha; }
 div.dokuwiki ol ol ol ol { list-style-type: lower-greek; }
 
 div.dokuwiki li.open {
-  list-style-image: url(images/open.gif);
-    /*list-style-type: circle;*/
+  /*list-style-image: url(images/open.gif);*/
+    list-style-type: circle
 }
 
 div.dokuwiki li.closed {
-  list-style-image: url(images/closed.gif);
-    /*list-style-type: disc;*/
+/*  list-style-image: url(images/closed.gif);*/
+    list-style-type: none
 }
 
 div.dokuwiki blockquote {

@@ -27,13 +27,13 @@ require_once(dirname(__FILE__).'/tpl_functions.php');
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>
-    <?php tpl_pagetitle()?>
-    [<?php echo strip_tags($conf['title'])?>]
+    <?php echo strip_tags($conf['title_short'])?>
+    - <?php tpl_pagetitle()?>
   </title>
 
   <?php tpl_metaheaders()?>
 
-  <link rel="shortcut icon" href="<?php echo DOKU_TPL?>images/favicon.ico" />
+  <link rel="shortcut icon" href="<?php echo DOKU_TPL?>images/favicon.png" />
 
   <?php /*old includehook*/ @include(dirname(__FILE__).'/meta.html')?>
 
@@ -48,10 +48,18 @@ require_once(dirname(__FILE__).'/tpl_functions.php');
     <div class="stylehead">
       <div class="header">
         <div class="pagename">
-          [[<?php tpl_link(wl($ID,'do=backlink'),tpl_pagetitle($ID,true))?>]]
+          <?php print $conf['title']; #.' - '.tpl_pagetitle($ID, true); 
+	?>
+
+<!-- AE
+[[<?php tpl_link(wl($ID,'do=backlink'),tpl_pagetitle($ID,true))?>]]
+-->
         </div>
         <div class="logo">
-          <?php tpl_link(wl(),$conf['title'],'name="dokuwiki__top" accesskey="h" title="[ALT+H]"')?>
+          <?php tpl_link(wl(),
+		"<img src=\"".DOKU_TPL."/images/logo.png\" alt=\"$conf[title]\" height=\"80\" />",
+		'name="dokuwiki__top" accesskey="h" title="[ALT+H]"');
+	?>
         </div>
       </div>
     
@@ -124,7 +132,11 @@ require_once(dirname(__FILE__).'/tpl_functions.php');
           ?>
         </div>
     </div>
-    <?php } ?>
+    <?php } 
+	else {
+	echo "<hr>";
+	}
+    ?>
     <?php } ?>
 
     <?php /*old includehook*/ @include(dirname(__FILE__).'/pageheader.html')?>
@@ -156,6 +168,12 @@ require_once(dirname(__FILE__).'/tpl_functions.php');
         <div class="right_sidebar">
           <?php tpl_searchform() ?>
           <?php tpl_sidebar('right') ?>
+	 <?php if (!isset($_SERVER['REMOTE_USER'])) {
+		print "<div style=\"text-align:right\">";
+			tpl_button('login');
+		print "</div>";
+		}
+	 ?>
         </div>
       <?php } else { ?>
         <div class="page">
@@ -195,7 +213,7 @@ require_once(dirname(__FILE__).'/tpl_functions.php');
           <?php tpl_userinfo()?>
           </div>
           <div class="doc">
-          <?php tpl_pageinfo()?>
+          <?php if (isset($_SERVER['REMOTE_USER'])) tpl_pageinfo()?>
           </div>
         </div>
       </div>
@@ -240,7 +258,11 @@ require_once(dirname(__FILE__).'/tpl_functions.php');
     </div>
     <div class="clearer"></div>
     <?php } ?>
-    <?php } ?>
+    <?php } else 
+	{
+	echo "<hr>";
+    }
+    ?>
     <?php } ?>
 
     <?php /*old includehook*/ @include(dirname(__FILE__).'/footer.html')?>

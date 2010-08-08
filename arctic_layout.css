@@ -6,15 +6,14 @@
 
 div.dokuwiki .header {
   height: __header_height__;
-  border: 1px solid __border__;
   background-color: __header_background__;
   margin-bottom: 0.2em;
 }
 
 div.dokuwiki .pagename {
   margin: 0.2em;
-  font-size: 130%;
-  color: __lightgray__;
+  font-size: 150%;
+  color: __darkgray__;
 }
 
 div.dokuwiki .logo {
@@ -23,7 +22,7 @@ div.dokuwiki .logo {
 }
 
 div.dokuwiki .pagename a {
-  color: __pagename_color__ !important;
+  color: __darkgray__ !important;
 }
 
 div.dokuwiki .logo a {

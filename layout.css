@@ -14,13 +14,12 @@ div.dokuwiki .pagename {
   float: left;
   font-size: 200%;
   font-weight: bolder;
-  color: __background_alt__;
+  color: #444;
   text-align: left;
   vertical-align: middle;
 }
 
 div.dokuwiki .pagename a {
-  color: __extern__ !important;
   text-decoration: none !important;
 }
 
